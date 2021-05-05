@@ -1,0 +1,9 @@
+[INFO ] 2021-05-05 12:14:39.880 [restartedMain] ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+[INFO ] 2021-05-05 12:14:40.106 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2021-05-05 12:14:40.129 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-8090"]
+[INFO ] 2021-05-05 12:14:40.151 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8090 (http) with context path ''
+[INFO ] 2021-05-05 12:14:40.163 [restartedMain] JpaApplication - Started JpaApplication in 4.439 seconds (JVM running for 6.353)
+[INFO ] 2021-05-05 12:14:42.196 [http-nio-0.0.0.0-8090-exec-1] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2021-05-05 12:14:42.196 [http-nio-0.0.0.0-8090-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2021-05-05 12:14:42.197 [http-nio-0.0.0.0-8090-exec-1] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2021-05-05 12:14:42.239 [http-nio-0.0.0.0-8090-exec-1] TestController - hello
