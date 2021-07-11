@@ -1,10 +1,9 @@
-package com.lim.example.jpa.test.controller;
+package com.lim.example.jpa.web.rest.test.controller;
 
-import com.lim.example.jpa.test.entity.Store;
-import com.lim.example.jpa.test.service.StoreService;
+import com.lim.example.jpa.web.rest.test.entity.Store;
+import com.lim.example.jpa.web.rest.test.service.StoreService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

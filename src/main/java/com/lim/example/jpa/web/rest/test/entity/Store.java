@@ -1,4 +1,4 @@
-package com.lim.example.jpa.test.entity;
+package com.lim.example.jpa.web.rest.test.entity;
 
 import lombok.Builder;
 import lombok.Getter;

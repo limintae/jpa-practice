@@ -1,6 +1,6 @@
-package com.lim.example.jpa.test.service;
+package com.lim.example.jpa.web.rest.test.service;
 
-import com.lim.example.jpa.test.entity.Store;
+import com.lim.example.jpa.web.rest.test.entity.Store;
 
 import java.util.Optional;
 

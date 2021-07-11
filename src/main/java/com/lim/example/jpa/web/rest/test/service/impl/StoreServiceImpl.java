@@ -1,8 +1,8 @@
-package com.lim.example.jpa.test.service.impl;
+package com.lim.example.jpa.web.rest.test.service.impl;
 
-import com.lim.example.jpa.test.dao.StoreRepository;
-import com.lim.example.jpa.test.entity.Store;
-import com.lim.example.jpa.test.service.StoreService;
+import com.lim.example.jpa.web.rest.test.dao.StoreRepository;
+import com.lim.example.jpa.web.rest.test.entity.Store;
+import com.lim.example.jpa.web.rest.test.service.StoreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
