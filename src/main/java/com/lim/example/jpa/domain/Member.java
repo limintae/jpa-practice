@@ -1,8 +1,10 @@
 package com.lim.example.jpa.domain;
 
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table(name = "member")
@@ -13,17 +15,15 @@ import javax.persistence.*;
 public class Member {
 
     @Id
-    @Column(name = "member_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "member_id", columnDefinition = "BINARY(16)")
+//    @Type(type="uuid-char")
+    private UUID id;
 
     @Column(name = "member_name")
     private String membername;
 
-    public static MemberBuilder builder(int id, String name) {
-        return MemberBuilder()
-                .id(id)
-                .membername(name);
-    }
+    @ManyToOne
+    @JoinColumn(name = "team_id")
+    private Team team;
 
 }
