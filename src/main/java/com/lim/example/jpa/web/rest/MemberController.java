@@ -46,6 +46,4 @@ public class MemberController {
         return true;
     }
 
-
-
 }
