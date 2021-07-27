@@ -1,7 +1,9 @@
 package com.lim.example.jpa.web.rest;
 
 import com.lim.example.jpa.domain.Member;
+import com.lim.example.jpa.domain.MemberAddress;
 import com.lim.example.jpa.domain.Team;
+import com.lim.example.jpa.repository.MemberAddressRepository;
 import com.lim.example.jpa.repository.MemberRepository;
 import com.lim.example.jpa.repository.TeamRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,12 +23,19 @@ import java.util.UUID;
 public class MemberController {
 
     private final MemberRepository memberRepository;
+    private final MemberAddressRepository memberAddressRepository;
     private final TeamRepository teamRepository;
 
     @GetMapping("/member/{memberId}")
     public String selectMember(@PathVariable("memberId") String memberId) {
         Optional<Member> member = memberRepository.findById(UUID.fromString(memberId));
         return member.get().getMembername();
+    }
+
+    @GetMapping("/member/addr/{memberId}")
+    public String selectMemberAddress(@PathVariable("memberId") String memberId) {
+        Optional<MemberAddress> memberAddress = memberAddressRepository.findById(UUID.fromString(memberId));
+        return memberAddress.get().getMemberAddress();
     }
 
     @PostMapping("/member")
@@ -40,6 +49,13 @@ public class MemberController {
                 .createdAt(LocalDateTime.now())
                 .build();
         memberRepository.save(member);
+
+        MemberAddress memberAddress = MemberAddress.builder()
+                .id(member.getId())
+                .memberAddress("bundang")
+                .createdAt(LocalDateTime.now())
+                .build();
+        memberAddressRepository.save(memberAddress);
         return true;
     }
 
