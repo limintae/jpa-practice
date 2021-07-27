@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -15,8 +16,7 @@ import java.util.UUID;
 public class Member {
 
     @Id
-    @Column(name = "member_id", columnDefinition = "BINARY(16)")
-//    @Type(type="uuid-char")
+    @Column(name = "member_id")
     private UUID id;
 
     @Column(name = "member_name")
@@ -25,5 +25,8 @@ public class Member {
     @ManyToOne
     @JoinColumn(name = "team_id")
     private Team team;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
 }

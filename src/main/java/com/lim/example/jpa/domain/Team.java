@@ -3,8 +3,8 @@ package com.lim.example.jpa.domain;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "team")
@@ -17,10 +17,12 @@ public class Team {
 
     @Id
     @Column(name = "team_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
 
     @Column(name = "team_name")
-    private String teamname;
+    private String teamName;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
 }

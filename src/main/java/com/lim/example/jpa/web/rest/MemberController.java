@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -30,19 +31,28 @@ public class MemberController {
 
     @PostMapping("/member")
     public boolean createMember() {
-        long teamId = 1;
-        Optional<Team> team = teamRepository.findById(teamId);
-        String uuid = memberRepository.generateMemberId();
-        Member member = Member.MemberBuilder().id(UUID.fromString(uuid)).membername("limintae").team(team.get()).build();
+        Optional<Team> team = teamRepository.findById(UUID.fromString("a16917c5-eece-11eb-aa09-fcaa14e48102"));
+        String memberId = memberRepository.generateMemberId();
+        Member member = Member.MemberBuilder()
+                .id(UUID.fromString(memberId))
+                .membername("limintae")
+                .team(team.get())
+                .createdAt(LocalDateTime.now())
+                .build();
         memberRepository.save(member);
         return true;
     }
 
     @PostMapping("/team")
     public boolean createTeam() {
-        Team team = Team.builder().teamname("lim_team").build();
-        Long teamId = teamRepository.save(team).getId();
-        log.info("teamId is : " + teamId);
+        String strTeamId = teamRepository.generateId();
+        Team team = Team.builder()
+                .id(UUID.fromString(strTeamId))
+                .teamName("lim_team")
+                .createdAt(LocalDateTime.now())
+                .build();
+        UUID teamId = teamRepository.save(team).getId();
+        log.info("teamId is : " + teamId.toString());
         return true;
     }
 
